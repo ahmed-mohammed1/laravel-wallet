@@ -120,4 +120,6 @@ return [
             'meta' => [],
         ],
     ],
+
+    'ignore_migration' => false,
 ];
