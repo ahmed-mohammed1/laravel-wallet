@@ -117,6 +117,9 @@ class WalletServiceProvider extends ServiceProvider
      */
     protected function shouldMigrate(): bool
     {
-        return config('wallets.ignore_migration') ?: WalletConfigure::$runsMigrations;
+        if (!is_null(config('wallet.ignore_migration'))) {
+            return config('wallet.ignore_migration');
+        }
+        return WalletConfigure::$runsMigrations;
     }
 }
